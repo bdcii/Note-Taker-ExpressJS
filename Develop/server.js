@@ -1,18 +1,26 @@
 //Dependencies
 const express = require('express');
-
-//access to routes
 const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
 
+//body parsing
+const bodyParser = require('body-parser');
+const parseUrlencoded = bodyParser.urlencoded({ extended: true});
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//routes
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
+
+//serves up files in the public folder
+app.use(express.static('public'));
 
 //Express Configuration
 const app = express();
 
-
 //Set port for use
 const PORT = 8080
-
 
 //Setting a listener for the port. Runs when our server has successfully started
 app.listen(PORT, () => {
