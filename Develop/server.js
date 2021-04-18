@@ -3,6 +3,9 @@ const express = require('express');
 const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
 
+//Express Configuration
+const app = express();
+
 //body parsing
 const bodyParser = require('body-parser');
 const parseUrlencoded = bodyParser.urlencoded({ extended: true});
@@ -16,8 +19,7 @@ app.use('/', htmlRoutes);
 //serves up files in the public folder
 app.use(express.static('public'));
 
-//Express Configuration
-const app = express();
+
 
 //Set port for use
 const PORT = 8080
