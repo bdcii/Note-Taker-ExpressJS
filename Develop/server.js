@@ -8,7 +8,7 @@ const app = express();
 
 //body parsing
 const bodyParser = require('body-parser');
-const parseUrlencoded = bodyParser.urlencoded({ extended: true});
+const parseUrlencoded = bodyParser.urlencoded({ extended: true });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,9 +22,9 @@ app.use(express.static('public'));
 
 
 //Set port for use
-const PORT = 8080
+const PORT = process.env.PORT || 3000;
 
 //Setting a listener for the port. Runs when our server has successfully started
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`);
-  });
+});
