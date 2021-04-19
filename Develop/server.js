@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 
 //Set port for use
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 //Setting a listener for the port. Runs when our server has successfully started
 app.listen(PORT, () => {
